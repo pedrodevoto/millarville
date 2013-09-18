@@ -117,10 +117,10 @@ if ($_FILES["box-producto_foto"]["error"] == 0 and isset($_POST['fotos-producto_
 		
 		$insertSQL = sprintf("INSERT INTO producto_foto (producto_id, producto_foto_url, producto_foto_thumb_front_url, producto_foto_thumb_front_mini_url, producto_foto_thumb_back_url, producto_foto_width, producto_foto_height) VALUES (%s, %s, %s, %s, %s, %s, %s)",
 						GetSQLValueString($_POST['fotos-producto_id'], "int"),
-						GetSQLValueString($path.$filename.$extension, "text"),
-						GetSQLValueString($path.$resizes['front']['filename'], "text"),
-						GetSQLValueString($path.$resizes['front_mini']['filename'], "text"),
-						GetSQLValueString($path.$resizes['back']['filename'], "text"),
+						GetSQLValueString($filename.$extension, "text"),
+						GetSQLValueString($resizes['front']['filename'], "text"),
+						GetSQLValueString($resizes['front_mini']['filename'], "text"),
+						GetSQLValueString($resizes['back']['filename'], "text"),
 						GetSQLValueString($width, "int"),
 						GetSQLValueString($height, "int"));								
 		$Result1 = mysql_query($insertSQL, $connection) or die(mysql_error());
