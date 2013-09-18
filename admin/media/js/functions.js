@@ -160,6 +160,13 @@ $(document).ready(function() {
 			});
 		}
 	}									
+	deleteLinkProductoFoto = function(id){
+		if (confirm('Está seguro que desea eliminar la foto?\n\nEsta acción no puede deshacerse.')) {
+			$.post("delete-producto_foto.php", {id: id}, function(data){
+				oTable.fnStandingRedraw();						
+			});
+		}
+	}
 	
 	/* ---------------------------- DIALOG FUNCTIONS ---------------------------- */
 	
@@ -276,6 +283,44 @@ $(document).ready(function() {
 		});	
 		return dfd.promise();				
 	}			
+	
+	populateDiv_Fotos = function (section, id, divsuffix) {
+		divsuffix = divsuffix || '';
+		$.getJSON("get-json-" + section + "_fotos.php?id=" + id, {}, function (j) {
+			if (j.error == 'expired') {
+				// Session expired
+				sessionExpire('box');
+			} else {
+				if (j.empty == true) {
+					// Record not found
+					$.colorbox.close();
+				} else {
+					// General variables
+					var result = '';
+					result += "<table><tbody><tr>";
+					// Table Data
+					$.each(j, function (i, object) {
+
+
+						result += '<td align="center" class="ui-state-default ui-corner-all" style="width:100px;height:115px;overflow: hidden;white-space: nowrap"><a href="' + object.foto_url + '" target="_blank"><img width="100" height="100" style="vertical-align:middle;" src="' + object.foto_thumb_url + '" /></a>';
+						result += '<br />';
+						result += '<span style="float:right"><ul class="dtInlineIconList ui-widget ui-helper-clearfix"><li title="Abrir en nueva ventana" onclick="window.open(\'' + object.foto_url + '\');"><span class="ui-icon ui-icon-newwin"></span></li><li title="Eliminar" onclick="deleteLinkProductoFoto(\'' + object.foto_id + '\');$(\'#divShowFoto' + divsuffix + '\').hide();populateDiv_Fotos(\'' + section + '\', ' + id + ', \'' + divsuffix + '\');"><span class="ui-icon ui-icon-trash"></span></li></ul></span>';
+						result += '</td>';
+					});
+					// Close Table
+					result += '</tr></tbody></table>';
+					// Populate DIV
+					$('#divBoxFotos' + divsuffix).html(result);
+					if (j != '') {
+						$('#divBoxFotos' + divsuffix).show();
+					} else {
+						$('#divBoxFotos' + divsuffix).hide();
+					}
+				}
+			}
+		});
+	}
+	
 	
 	<!-- Populate Table functions -->
 	populateTableProdColor = function(id){
@@ -756,6 +801,26 @@ $(document).ready(function() {
 					// Enable form							
 					formUIEnabled('frmBoxMod');															
 				});		
+				
+				// FOTOS
+				populateDiv_Fotos('producto', id);
+				$("#fotos-producto_id").val(id);
+				// AJAX file form
+				$("#fileForm").ajaxForm({
+					beforeSend: function () {
+						$("#fotosLoading").show();
+					},
+					uploadProgress: function (event, position, total, percentComplete) {
+				
+					},
+					complete: function (xhr) {
+						if (xhr.responseText != 'ok') {
+							alert(xhr.responseText);
+						}
+						$("#fotosLoading").hide();
+						populateDiv_Fotos('producto', id);
+					}
+				});
 				
 				// COLOR
 				// Populate Master ID (Hidden field)

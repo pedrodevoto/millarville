@@ -54,19 +54,6 @@
                     </select>
                 </p>                                                          
             </fieldset>   
-            <!-- Fotos -->      
-            <fieldset class="ui-widget ui-widget-content ui-corner-all" style="margin-top:20px">        
-                <legend class="ui-widget ui-widget-header ui-corner-all">Fotos</legend>   
-                <p>
-                    <label>Imagen Destacada<br />(PNG, 350x188)</label> <input type="file" name="box-image_highlight" id="box-image_highlight" /> <span id="spnBoxImg1" style="margin-left:20px"></span>
-                </p>
-                <p>
-                    <label>Imagen Pequeña <br />(JPG, 286x200) </label> <input type="file" name="box-image_small" id="box-image_small" /> <span id="spnBoxImg2" style="margin-left:20px"></span>
-                </p>                            
-                <p>
-                    <label>Imagen Grande <br />(JPG, 460x340) </label> <input type="file" name="box-image_big" id="box-image_big" /> <span id="spnBoxImg3" style="margin-left:20px"></span>
-                </p>                                        
-            </fieldset>              
             <!-- Acciones -->
             <p align="center" style="margin-top:20px">
                 <input type="hidden" name="MAX_FILE_SIZE" value="2048000" />        
@@ -78,6 +65,22 @@
             <p><span class="ui-icon spnBoxMessage" id="spnBoxIcon"></span>
             <span id="spnBoxMessage"></span></p>
         </div>
+        <!-- Fotos -->      
+		<div style="margin-top:20px">
+		    <fieldset class="ui-widget ui-widget-content ui-corner-all">
+		        <legend class="ui-widget ui-widget-header ui-corner-all" style="padding:5px">Fotos</legend> 
+				<form id="fileForm" action="upload-producto_foto.php" method="post" enctype="multipart/form-data">
+					<input type="hidden" name="fotos-producto_id" id="fotos-producto_id" value="" />
+				    <p>
+				        <label for="box-producto_foto">Subir</label>
+				        <input type="file" name="box-producto_foto" id="box-producto_foto" class="ui-widget-content" style="width:220px" />
+						<input type="submit" value="Subir foto"> <span id="fotosLoading" style="display:none"><img title="Subiendo..." src="media/images/fotos-loading.gif" /></span>
+				    </p>
+				</form>
+				<div id="divBoxFotos" style="width:600px;height:135px;overflow:auto;white-space: nowrap;display:none">
+				</div>
+			</fieldset>
+		</div>         
         <br />
         
     </div>

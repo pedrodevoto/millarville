@@ -50,19 +50,6 @@
                 </select>
             </p>                                                          
         </fieldset>   
-        <!-- Fotos -->      
-		<fieldset class="ui-widget ui-widget-content ui-corner-all" style="margin-top:20px">        
-			<legend class="ui-widget ui-widget-header ui-corner-all">Fotos</legend>   
-            <p>
-	    	    <label>Imagen Destacada *<br />(PNG, 350x188)</label> <input type="file" name="box-image_highlight" id="box-image_highlight" />
-			</p>
-            <p>
-	    	    <label>Imagen Pequeña *<br />(JPG, 286x200) </label> <input type="file" name="box-image_small" id="box-image_small" />
-			</p>                            
-            <p>
-	    	    <label>Imagen Grande *<br />(JPG, 460x340) </label> <input type="file" name="box-image_big" id="box-image_big" />
-			</p>                                        
-        </fieldset>              
         <!-- Acciones -->
         <p align="center" style="margin-top:20px">
 		    <input type="hidden" name="MAX_FILE_SIZE" value="2048000" />        
