@@ -28,6 +28,8 @@
 		// Check insert
 		switch (mysql_errno()) {
 			case 0:			
+				// Get ID
+				$inserted_id = mysql_insert_id();				
 				echo $inserted_id;
 				break;
 			default:

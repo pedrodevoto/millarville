@@ -9,7 +9,7 @@
     <div style="float: left; width:71%"> 
 
 		<!-- PRODUCTO -->
-        <form name="frmBoxMod" id="frmBoxMod" class="frmBoxMain">
+        <form name="frmBoxMod" id="frmBoxMod" class="frmBoxMain" method="POST">
             <!-- Producto -->
             <fieldset class="ui-widget ui-widget-content ui-corner-all">
                 <legend class="ui-widget ui-widget-header ui-corner-all">Producto</legend>    

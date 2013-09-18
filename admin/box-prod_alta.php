@@ -5,7 +5,7 @@
 
 <div class="divBoxContainer" style="width:94%">
 
-	<form name="frmBoxAlta" id="frmBoxAlta" class="frmBoxMain">
+	<form name="frmBoxAlta" id="frmBoxAlta" class="frmBoxMain" method="POST">
     	<!-- Producto -->
 		<fieldset class="ui-widget ui-widget-content ui-corner-all">
             <legend class="ui-widget ui-widget-header ui-corner-all">Producto</legend>    
