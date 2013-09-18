@@ -1,0 +1,365 @@
+/* CSS Document */
+
+/* Elements and IDs */
+
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 62.5%;
+	margin: 0;
+	padding: 0;
+	color: #333;
+}
+
+fieldset {
+	padding:10px;
+}
+
+legend {
+	margin-bottom:3px;
+}
+
+input, select {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 1em;
+}
+
+textarea {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 1em;
+	resize:none;
+}
+
+#divLogo {
+	text-align:center;
+	margin:20px;
+}
+
+#divHeader {
+	width: 100%;
+}
+
+#divHeaderLogo {
+	display: inline-block;
+}
+
+#divHeaderTitle {
+	display: inline-block;
+	font-size: 1.1em;
+	color: #333;	
+	vertical-align: bottom;
+}
+
+#divContainer {
+	width: 960px;
+	margin: 4px auto;
+	padding: 0;
+}
+
+#divMain {
+	padding-top: 40px;
+	width: 100%;
+	text-align: center;	
+}
+
+/* Classes: Widget Specific */
+
+#dtDivHeaderIcons {
+	float: left;
+	width: 20%;
+}
+#dtDivHeaderIcons ul {
+    margin: 0;
+    padding: 0;
+}
+#dtDivHeaderIcons ul li {
+    cursor: pointer;
+    float: left;
+    list-style: none;
+    margin: 0 1px;
+    padding: 0;
+}
+#dtDivHeaderIcons ul span.ui-icon {
+    margin: 0 3px;
+}
+
+.dataTables_filter input {
+	font-size: 1em;
+}
+
+.dtFormDate input {
+	width: 90%;
+	color: #333;
+}
+
+.dtFormText input {
+	width: 90% !important;
+	height: auto !important;
+	color: #333;
+}
+
+.dtFormSelect select {
+	width: 100%;
+	color: #333;
+}
+
+.dtInlineIconList {
+    margin: 0;
+    padding: 0;
+}
+.dtInlineIconList li {
+    cursor: pointer;
+    float: left;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.dtInlineIconList span.ui-icon {
+    margin: 0;
+	padding: 0;
+}
+
+.dtLink {
+	color: #0e558b;	
+	text-decoration: none;
+}
+.dtLink:hover {
+	color: #1968a5;	
+}
+
+table.display tfoot th {
+    padding: 3px 12px 3px 6px;
+}
+
+table.display tr.even.row_warning td {
+	background-color: #fcdaa9;
+}
+table.display tr.odd.row_warning td {
+	background-color: #fed395;
+}
+
+/* Classes: General */
+
+.divBoxContainer {	
+	padding:10px;	
+}
+
+.divBoxMessage {
+	display: none;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	padding: 0 .7em;
+}
+
+.divDashMessage {
+	display: none;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	padding: 0 .7em;
+}
+
+.divLoginForm {
+	width: 100%;
+	text-align: center;
+	background-color:#0e558b;		
+}
+
+.divLoginText {
+	padding-top: 10px;
+	width: 100%;
+	text-align: center;	
+}
+
+.frmLogin {
+	margin: 0;
+	padding: 15px;
+}
+.frmLogin label {
+	font-size: 1.2em;
+	color: #FFF;		
+}
+.frmLogin input {
+	font-size: 1.2em;
+}
+.frmLogin input[type="text"] {
+	height: 15px;	
+	padding: 0;	
+	margin-top: 2px;	
+	margin-bottom: 10px;
+}
+.frmLogin input[type="password"] {
+	height: 15px;	
+	padding: 0;	
+	margin-top: 2px;		
+	margin-bottom: 10px;
+}
+
+.frmBoxMain legend {
+	padding: 5px;
+}
+.frmBoxMain label {
+	display: inline-block;
+	width: 120px;
+	vertical-align: top;	
+}
+.frmBoxMain label.error {
+	margin-left: 10px;	
+	width: auto;		
+	display: inline;	
+	color: red;
+	vertical-align: top;
+}
+.frmBoxMain input[type=text]:disabled{
+	color:#333;
+}
+.frmBoxMain select:disabled{
+	color:#333;
+}
+.frmBoxMain p {
+	margin: 0;
+	padding: 2px;
+}
+
+.frmBoxAd legend {
+	padding: 5px;
+}
+.frmBoxAd label.error {
+	margin-left: 10px;	
+	width: auto;		
+	display: inline;	
+	color: red;
+	vertical-align: middle;
+}
+.frmBoxAd textarea:disabled{
+	color:#333;
+}
+.frmBoxAd p {
+	margin: 0;
+	padding: 2px;
+}
+
+.frmDash label {
+	display: inline-block;
+	width: 85px;
+}
+.frmDash label.error {
+	margin-left: 5px;	
+	width: auto;		
+	display: inline;	
+	color: red;
+	vertical-align: middle;
+}
+.frmDash input[type="checkbox"] {
+	vertical-align:middle;
+}
+.frmDash p {
+	margin: 0;
+	padding: 3px;
+}
+
+.tblBox {
+	width:100%;
+}
+.tblBox th {
+	text-align:left;
+	font-weight:bold;
+}
+.tblBox td {
+	padding: 3px;	
+	vertical-align:top;
+	color: #333;
+	text-align: left;
+}
+.tblBox td a {
+	color: #0e558b;	
+	text-decoration: none;
+}
+.tblBox td a:hover {
+	color: #1968a5;	
+}
+
+.tblDash {
+	width: 95%;
+	border-width: 1px;
+	border-spacing: 0px;
+	border-style: solid;
+	border-color: #666;
+	border-collapse: collapse;	
+}
+.tblDash td {
+	border-width: 1px;
+	padding: 3px;
+	border-style: solid;
+	border-color: #666;
+	background-color: white;	
+	vertical-align:top;
+	color: #333;
+	text-align: left;
+}
+.tblDash .tdTitle {
+	color: #FFF;
+	background-color: #999;
+}
+
+.tblLogin {
+	margin-left: auto;
+	margin-right: auto;
+}
+.tblLogin td {
+	padding: 5px;	
+	height: 40px;
+}
+
+.spnBoxMessage {
+	float: left;
+	margin-right: .3em;
+}
+
+.spnDashMessage {
+	float: left;
+	margin-right: .3em;
+}
+
+.titLogin {
+	font-size: 1.4em;
+}
+
+.txtBox {
+	font-size: 1.1em;
+}
+
+.txtLogin {
+	font-size: 1.2em;
+}
+
+.txtLoginError {
+	font-size: 1.2em;
+	color:#900;
+}
+
+.txtMain {
+	font-size: 1.2em;
+}
+
+.lnkLogin {
+	color: #0e558b;	
+	text-decoration: none;
+}
+.lnkLogin:hover {
+	color: #1968a5;	
+}
+
+.lnkBox {
+	color: #0e558b !important;	
+	text-decoration: none;
+}
+.lnkBox:hover {
+	color: #1968a5 !important;	
+}
+
+.lnkDash {
+	color: #0e558b !important;	
+	text-decoration: none;
+}
+.lnkDash:hover {
+	color: #1968a5 !important;	
+}

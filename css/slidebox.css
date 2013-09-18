@@ -1,0 +1,39 @@
+@charset "utf-8";
+
+#slidebox{position:relative; margin:20;}
+#slidebox, #slidebox .content{width:735px;}
+#slidebox, #slidebox .container, #slidebox .content{height:180px;}
+#slidebox{overflow:hidden;}
+#slidebox .container{position:relative; left:0;}
+#slidebox .content{float:left;}
+#slidebox .next, #slidebox .previous{position:absolute; z-index:2; display:block; width:25px; height:47px;}
+#slidebox .next{right:0; margin-right:0px; background:url(../img/flecha_der.png) no-repeat left top; cursor:pointer;}
+#slidebox .next:hover{background:url(../img/flecha_der.png) no-repeat left top;}
+#slidebox .previous{margin-left:0px; background:url(../img/flecha_izq.png) no-repeat left top; cursor:pointer;}
+#slidebox .previous:hover{background:url(../img/flecha_izq.png) no-repeat left top;}
+#slidebox .thumbs{position:absolute; z-index:2; bottom:0px; right:0px;}
+
+#slidebox .thumbs .thumb{
+	float:left;
+    margin: 0 2px;	
+    height: 11px;
+    width: 11px;
+    background-repeat: no-repeat;
+    display: block;
+    overflow: hidden;
+    text-indent: -99999px;		
+	background-image:url(../img/dot-off.png);
+    cursor: pointer;	
+}
+#slidebox .selected_thumb{
+	float:left;
+    margin: 0 2px;	
+    height: 11px;
+    width: 10px;
+    background-repeat: no-repeat;
+    display: block;
+    overflow: hidden;
+    text-indent: -99999px;		
+	background-image:url(../img/dot-on.png);
+    cursor: pointer;	
+}
