@@ -99,6 +99,8 @@ if ($_FILES["box-producto_foto"]["error"] == 0 and isset($_POST['fotos-producto_
 			}
 
 			$thumb = imagecreatetruecolor( $thumb_width, $thumb_height );
+			imagealphablending($thumb, false);
+			imagesavealpha($thumb, true);
 
 			// Resize and crop
 			imagecopyresampled($thumb,
