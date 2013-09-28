@@ -62,8 +62,8 @@ if ($_FILES["box-producto_foto"]["error"] == 0 and isset($_POST['fotos-producto_
 					'filename'=> $filename . '_thumb_front_mini.png'
 			),
 			'front' => array(
-					'width'=> 220,
-					'height'=> 247,
+					'width'=> 480,
+					'height'=> 360,
 					'filename'=> $filename . '_thumb_front.png'
 			),
 			'back' => array(
