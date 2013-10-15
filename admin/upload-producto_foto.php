@@ -59,18 +59,23 @@ if ($_FILES["box-producto_foto"]["error"] == 0 and isset($_POST['fotos-producto_
 			'front_mini' => array(
 					'width'=> 48,
 					'height'=> 48,
-					'filename'=> $filename . '_thumb_front_mini.png'
+					'filename'=> $filename . '-thumb_front_mini.png'
 			),
 			'front' => array(
 					'width'=> 480,
 					'height'=> 360,
-					'filename'=> $filename . '_thumb_front.png'
+					'filename'=> $filename . '-thumb_front.png'
 			),
 			'back' => array(
 					'width'=> 100,
 					'height'=> 100,
-					'filename'=> $filename . '_thumb_back.png'
+					'filename'=> $filename . '-thumb_back.png'
 			),
+			'home' => array(
+					'width'=> 350,
+					'height'=> 188,
+					'filename'=> $filename . '-home.png'
+			)
 		);
 		
 		$width = imagesx($image);
@@ -124,14 +129,6 @@ if ($_FILES["box-producto_foto"]["error"] == 0 and isset($_POST['fotos-producto_
 						GetSQLValueString($width, "int"),
 						GetSQLValueString($height, "int"));								
 		$Result1 = mysql_query($insertSQL, $connection) or die(mysql_error());
-		if ($id = mysql_insert_id()) {
-			rename('../prod_img/'.$filename.$extension, '../prod_img/'.$id.'-big'.$extension);
-			rename('../prod_img/'.$resizes['front']['filename'], '../prod_img/'.$id.'-thumb_front.png');
-			rename('../prod_img/'.$resizes['front_mini']['filename'], '../prod_img/'.$id.'-thumb_front_mini.png');
-			rename('../prod_img/'.$resizes['back']['filename'], '../prod_img/'.$id.'-thumb_back.png');
-		}
-		$sql = sprintf('UPDATE producto_foto SET producto_foto_url="%s", producto_foto_thumb_front_url="%s", producto_foto_thumb_front_mini_url="%s", producto_foto_thumb_back_url="%s" WHERE producto_foto_id = %s', $id.$extension, $id.'-thumb_front.png', $id.'-thumb_front_mini.png', $id.'-thumb_back.png', $id);
-		mysql_query($sql, $connection);
-		echo "ok";
+		echo "ok";	
 	}
 }
