@@ -14,7 +14,7 @@
 	if (isset($_GET['id'])) {
 		$colname_Recordset1 = $_GET['id'];
 	}	
-	$query_Recordset1 = sprintf("SELECT producto_foto_id as foto_id, CONCAT('../prod_img/', producto_foto_url) as foto_url, CONCAT('../prod_img/', producto_foto_thumb_back_url) as foto_thumb_url, producto_foto_width as foto_with, producto_foto_height as foto_height FROM producto_foto WHERE producto_id=%s", 
+	$query_Recordset1 = sprintf("SELECT producto_foto_id as foto_id, CONCAT('../prod_img/', producto_foto_url) as foto_url, CONCAT('../prod_img/', producto_foto_thumb_back_url) as foto_thumb_url, producto_foto_width as foto_with, producto_foto_height as foto_height, producto_foto_highlight as foto_highlight FROM producto_foto WHERE producto_id=%s", 
 		GetSQLValueString($colname_Recordset1, "int"));
 			
 	// Recordset: Main

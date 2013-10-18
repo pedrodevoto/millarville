@@ -168,6 +168,14 @@ $(document).ready(function() {
 		}
 	}
 	
+	updateProductoFotoHighlight = function(id, producto_id) {
+		if (confirm('Está seguro que desea marcar la foto como highlight?')) {
+			$.post("update-producto_foto_highlight.php", {id: id}, function(data){
+				populateDiv_Fotos('producto', producto_id);
+			});
+		}
+	}
+	
 	/* ---------------------------- DIALOG FUNCTIONS ---------------------------- */
 	
 	// Use this space for dialog related functions			
@@ -304,7 +312,11 @@ $(document).ready(function() {
 
 						result += '<td align="center" class="ui-state-default ui-corner-all" style="width:100px;height:115px;overflow: hidden;white-space: nowrap"><a href="' + object.foto_url + '" target="_blank"><img width="100" height="100" style="vertical-align:middle;" src="' + object.foto_thumb_url + '" /></a>';
 						result += '<br />';
-						result += '<span style="float:right"><ul class="dtInlineIconList ui-widget ui-helper-clearfix"><li title="Abrir en nueva ventana" onclick="window.open(\'' + object.foto_url + '\');"><span class="ui-icon ui-icon-newwin"></span></li><li title="Eliminar" onclick="deleteLinkProductoFoto(\'' + object.foto_id + '\');$(\'#divShowFoto' + divsuffix + '\').hide();populateDiv_Fotos(\'' + section + '\', ' + id + ', \'' + divsuffix + '\');"><span class="ui-icon ui-icon-trash"></span></li></ul></span>';
+						result += '<span style="float:right"><ul class="dtInlineIconList ui-widget ui-helper-clearfix">';
+						if (object.foto_highlight == 0) {
+							result += '<li title="Marcar como Highlight" onclick="updateProductoFotoHighlight(\'' + object.foto_id + '\', \'' + id + '\');"><span class="ui-icon ui-icon-star"></span></li>';
+						}
+						result += '<li title="Abrir en nueva ventana" onclick="window.open(\'' + object.foto_url + '\');"><span class="ui-icon ui-icon-newwin"></span></li><li title="Eliminar" onclick="deleteLinkProductoFoto(\'' + object.foto_id + '\');$(\'#divShowFoto' + divsuffix + '\').hide();populateDiv_Fotos(\'' + section + '\', ' + id + ', \'' + divsuffix + '\');"><span class="ui-icon ui-icon-trash"></span></li></ul></span>';
 						result += '</td>';
 					});
 					// Close Table
