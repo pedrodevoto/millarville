@@ -90,15 +90,13 @@ if ($_FILES["box-producto_foto"]["error"] == 0 and isset($_POST['fotos-producto_
 			$original_aspect = $width / $height;
 			$thumb_aspect = $thumb_width / $thumb_height;
 
-			if ( $original_aspect >= $thumb_aspect )
+			if ( $original_aspect <= $thumb_aspect )
 			{
-			   // If image is wider than thumbnail (in aspect ratio sense)
 			   $new_height = $thumb_height;
 			   $new_width = $width / ($height / $thumb_height);
 			}
 			else
 			{
-			   // If the thumbnail is wider than the image
 			   $new_width = $thumb_width;
 			   $new_height = $height / ($width / $thumb_width);
 			}
