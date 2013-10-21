@@ -104,7 +104,10 @@ if ($_FILES["box-producto_foto"]["error"] == 0 and isset($_POST['fotos-producto_
 			$thumb = imagecreatetruecolor( $thumb_width, $thumb_height );
 			imagealphablending($thumb, false);
 			imagesavealpha($thumb, true);
-
+			
+			$trans_layer_overlay = imagecolorallocatealpha($image, 220, 220, 220, 127);
+			imagefill($thumb, 0, 0, $trans_layer_overlay);
+			
 			// Resize and crop
 			imagecopyresampled($thumb,
 			                   $image,
